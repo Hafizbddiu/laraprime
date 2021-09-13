@@ -13,12 +13,17 @@
       <template #content>
         <div class="p-fluid p-formgrid p-grid">
           <div class="p-field p-col">
-            <label for="designationName">Designation Name </label><br />
-            <InputText type="text"  />
+             <span class="p-float-label">       
+            <InputText type="text" id="designationName" />
+             <label for="designationName">Designation Name </label><br />
+              </span>
           </div>
           <div class="p-field p-col">
+              <span class="p-float-label">       
+            
+            <Textarea id="description" :autoResize="true" rows="1" cols="30" />
             <label for="description">Description </label><br />
-            <Textarea  :autoResize="true" rows="1" cols="30" />
+              </span>
           </div>
         </div>
         <div class="form-group">

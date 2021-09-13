@@ -13,7 +13,7 @@
 
     <card class="p-mt-2">
       <template #content>
-        <DataTable :value="lockers" :filters="filters" :selection.sync="selectedDepartments"  dataKey="departmentName" :paginator="true" :rows="5"
+        <DataTable :value="lockers" :filters="filters" :selection.sync="selectedDepartments"  dataKey="name" :paginator="true" :rows="5"
     paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
     :rowsPerPageOptions="[5,10,20,50]"
     editMode="row"  :editingRows.sync="editingRows"
@@ -34,32 +34,39 @@
        
     </template>
             <Column selectionMode="multiple" headerStyle="width: 3em"></Column>
-          <Column field="name" header="Name" sortable>
+          <Column headerStyle="text-align:center" bodyStyle="text-align:center"  field="name" header="Name" sortable>
            <template #editor="slotProps">
                 <InputText v-model="slotProps.data[slotProps.column.field]" />
             </template>
           </Column>
-          <Column field="description" header="Description" sortable>
+          <Column headerStyle="text-align:center" bodyStyle="text-align:center"  field="description" header="Description" sortable>
            <template #editor="slotProps">
                 <InputText v-model="slotProps.data[slotProps.column.field]" />
             </template>
           </Column>
-            <Column field="parent" header="Parent" sortable>
+            <Column headerStyle="text-align:center" bodyStyle="text-align:center"  field="parent" header="Parent" sortable>
            <template #editor="slotProps">
                 <InputText v-model="slotProps.data[slotProps.column.field]" />
             </template>
           </Column>
-           <Column field="softOrder" header="Soft Order" sortable>
+           <Column headerStyle="text-align:center" bodyStyle="text-align:center"  field="softOrder" header="Soft Order" sortable>
            <template #editor="slotProps">
                 <InputText v-model="slotProps.data[slotProps.column.field]" />
             </template>
           </Column>
-          <Column field="status" header="Status" sortable>
+          <Column headerStyle="text-align:center" bodyStyle="text-align:center"  field="status" header="Status" sortable>
            <template #editor="slotProps">
                 <InputText v-model="slotProps.data[slotProps.column.field]" />
             </template>
             </Column>
-            <Column :rowEditor="true" headerStyle="width:7rem" bodyStyle="text-align:center"></Column>
+            <Column :rowEditor="true" headerStyle="text-align:center" bodyStyle="text-align:center" header="Edit"></Column>
+          
+       <Column  headerStyle="text-align:center" bodyStyle="text-align:center" field="action" header="Action"> 
+            <template #body="slotProps">
+              <Button label="Delete" class="p-button-danger" />{{slotProps.data[slotProps.column.field]}}
+              
+            </template>
+            </Column>
         </DataTable>
       </template>
     </card>
@@ -84,9 +91,11 @@ export default {
                     {name:'Name1',description:'Employe designation List',parent:'Parent ',softOrder:'Soft Order',status:'Active'},
 
             ],
+              name1:null,
             filters:{},
             selectedDepartments:null,
             editingRows:[],
+           
  home: { icon: "pi pi-home", to: "/" },
       items: [
          { label: "Lockers"},
@@ -98,10 +107,10 @@ export default {
     },
     methods: {
         onRowEditInit(event) {
-            this.originalRows[event.index] = {...this.departments[event.index]};
+            this.originalRows[event.index] = {...this.lockers[event.index]};
         },
         onRowEditCancel(event) {
-            Vue.set(this.departments, event.index, this.originalRows[event.index]);
+            Vue.set(this.lockers, event.index, this.originalRows[event.index]);
         },
     }
 }

@@ -63,6 +63,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -930,22 +935,53 @@ var render = function() {
             fn: function() {
               return [
                 _c("div", { staticClass: "p-fluid p-formgrid p-grid" }, [
-                  _c(
-                    "div",
-                    { staticClass: "p-field p-col" },
-                    [
-                      _c("label", { attrs: { for: "title" } }, [
-                        _vm._v("Title ")
-                      ]),
-                      _vm._v(" "),
-                      _c("InputText", { attrs: { id: "title", type: "text" } })
-                    ],
-                    1
-                  ),
+                  _c("div", { staticClass: "p-field p-col" }, [
+                    _c(
+                      "span",
+                      { staticClass: "p-float-label" },
+                      [
+                        _c("InputText", {
+                          attrs: { id: "title", type: "text" }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "title" } }, [
+                          _vm._v("Title ")
+                        ])
+                      ],
+                      1
+                    )
+                  ]),
                   _vm._v(" "),
+                  _c("div", { staticClass: "p-field p-col" }, [
+                    _c(
+                      "span",
+                      { staticClass: "p-float-label" },
+                      [
+                        _c("Textarea", {
+                          attrs: { autoResize: true, rows: "1", cols: "30" },
+                          model: {
+                            value: _vm.description,
+                            callback: function($$v) {
+                              _vm.description = $$v
+                            },
+                            expression: "description"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "description" } }, [
+                          _vm._v("Description ")
+                        ]),
+                        _c("br")
+                      ],
+                      1
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "p-fluid p-formgrid p-grid" }, [
                   _c(
                     "div",
-                    { staticClass: "p-field p-col" },
+                    { staticClass: "p-field p-col-6" },
                     [
                       _c("label", { attrs: { for: "logo" } }, [
                         _vm._v("Logo ")
@@ -956,31 +992,6 @@ var render = function() {
                       _c("Input", {
                         staticClass: "form-control",
                         attrs: { type: "file", id: "logo" }
-                      })
-                    ],
-                    1
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "p-fluid p-formgrid p-grid" }, [
-                  _c(
-                    "div",
-                    { staticClass: "p-field p-col-6" },
-                    [
-                      _c("label", { attrs: { for: "description" } }, [
-                        _vm._v("Description ")
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("Textarea", {
-                        attrs: { autoResize: true, rows: "1", cols: "30" },
-                        model: {
-                          value: _vm.description,
-                          callback: function($$v) {
-                            _vm.description = $$v
-                          },
-                          expression: "description"
-                        }
                       })
                     ],
                     1

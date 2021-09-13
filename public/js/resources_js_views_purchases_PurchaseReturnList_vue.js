@@ -150,7 +150,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       designations: [{
-        PurchaseReturnDate: "",
+        PurchaseReturnDate: "3-4-2013",
         CustomerName: "Name1",
         Werehouse: "Employe designation List",
         ReferenceNo: "222",
@@ -163,7 +163,7 @@ __webpack_require__.r(__webpack_exports__);
         SlotQty: "233",
         TotalProduct: "99933"
       }, {
-        PurchaseReturnDate: "",
+        PurchaseReturnDate: "2-3-2011",
         CustomerName: "Name2",
         Werehouse: "Employe designation List",
         ReferenceNo: "222",
@@ -176,7 +176,7 @@ __webpack_require__.r(__webpack_exports__);
         SlotQty: "233",
         TotalProduct: "99933"
       }, {
-        PurchaseReturnDate: "",
+        PurchaseReturnDate: "3-4-2013",
         CustomerName: "Name3",
         Werehouse: "Employe designation List",
         ReferenceNo: "222",
@@ -189,7 +189,7 @@ __webpack_require__.r(__webpack_exports__);
         SlotQty: "233",
         TotalProduct: "99933"
       }, {
-        PurchaseReturnDate: "",
+        PurchaseReturnDate: "3-4-2013",
         CustomerName: "Name4",
         Werehouse: "Employe designation List",
         ReferenceNo: "222",
@@ -202,7 +202,7 @@ __webpack_require__.r(__webpack_exports__);
         SlotQty: "233",
         TotalProduct: "99933"
       }, {
-        PurchaseReturnDate: "",
+        PurchaseReturnDate: "3-4-2013",
         CustomerName: "Name5",
         Werehouse: "Employe designation List",
         ReferenceNo: "222",
@@ -215,7 +215,7 @@ __webpack_require__.r(__webpack_exports__);
         SlotQty: "233",
         TotalProduct: "99933"
       }, {
-        PurchaseReturnDate: "",
+        PurchaseReturnDate: "3-4-2013",
         CustomerName: "Name6",
         Werehouse: "Employe designation List",
         ReferenceNo: "222",
@@ -228,7 +228,7 @@ __webpack_require__.r(__webpack_exports__);
         SlotQty: "233",
         TotalProduct: "99933"
       }, {
-        PurchaseReturnDate: "",
+        PurchaseReturnDate: "3-4-2013",
         CustomerName: "Name7",
         Werehouse: "Employe designation List",
         ReferenceNo: "222",
@@ -241,7 +241,7 @@ __webpack_require__.r(__webpack_exports__);
         SlotQty: "233",
         TotalProduct: "99933"
       }, {
-        PurchaseReturnDate: "",
+        PurchaseReturnDate: "3-4-2013",
         CustomerName: "Name8",
         Werehouse: "Employe designation List",
         ReferenceNo: "222",
@@ -254,7 +254,7 @@ __webpack_require__.r(__webpack_exports__);
         SlotQty: "233",
         TotalProduct: "99933"
       }, {
-        PurchaseReturnDate: "",
+        PurchaseReturnDate: "3-4-2013",
         CustomerName: "Name9",
         Werehouse: "Employe designation List",
         ReferenceNo: "222",
@@ -267,7 +267,7 @@ __webpack_require__.r(__webpack_exports__);
         SlotQty: "233",
         TotalProduct: "99933"
       }, {
-        PurchaseReturnDate: "",
+        PurchaseReturnDate: "3-4-2013",
         CustomerName: "Name10",
         Werehouse: "Employe designation List",
         ReferenceNo: "222",

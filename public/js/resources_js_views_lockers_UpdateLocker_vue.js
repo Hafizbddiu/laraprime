@@ -78,6 +78,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -90,7 +109,14 @@ __webpack_require__.r(__webpack_exports__);
   name: "UpdateLocker",
   data: function data() {
     return {
-      status: true,
+      status: null,
+      statuss: [{
+        name: "Active"
+      }, {
+        name: "Inactive"
+      }],
+      name1: null,
+      parentDepartment: null,
       softOrder: null,
       softOrders: [{
         order: 'Order1'
@@ -98,18 +124,6 @@ __webpack_require__.r(__webpack_exports__);
         order: 'Order2'
       }, {
         order: 'Order3'
-      }],
-      parent: null,
-      parents: [{
-        name: "Parent 1"
-      }, {
-        name: "Parent 2"
-      }, {
-        name: "Parent 3"
-      }, {
-        name: "Parent 4"
-      }, {
-        name: "Parent 5"
       }],
       home: {
         icon: "pi pi-home",
@@ -125,6 +139,16 @@ __webpack_require__.r(__webpack_exports__);
         to: "/locker-list"
       }, {
         label: "Update Locker"
+      }],
+      parentDepartments: [{
+        name: 'Department 1',
+        code: 'A-SY'
+      }, {
+        name: 'Department 2',
+        code: 'A-NE'
+      }, {
+        name: 'Department 3',
+        code: 'A-WO'
       }]
     };
   }
@@ -723,131 +747,149 @@ var render = function() {
             fn: function() {
               return [
                 _c("div", { staticClass: "p-fluid p-formgrid p-grid" }, [
-                  _c(
-                    "div",
-                    { staticClass: "p-field p-col" },
-                    [
-                      _c("label", { attrs: { for: "Name" } }, [
-                        _vm._v("Name ")
-                      ]),
-                      _vm._v(" "),
-                      _c("InputText", { attrs: { id: "Name", type: "text" } })
-                    ],
-                    1
-                  ),
+                  _c("div", { staticClass: "p-field p-col" }, [
+                    _c(
+                      "span",
+                      { staticClass: "p-float-label" },
+                      [
+                        _c("InputText", {
+                          attrs: { id: "Name", type: "text" }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "Name" } }, [
+                          _vm._v("Name ")
+                        ])
+                      ],
+                      1
+                    )
+                  ]),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "p-field p-col" },
-                    [
-                      _c("label", { attrs: { for: "description" } }, [
-                        _vm._v("Description")
-                      ]),
-                      _vm._v(" "),
-                      _c("InputText", {
-                        attrs: { id: "description", type: "text" }
-                      })
-                    ],
-                    1
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "p-fluid p-formgrid p-grid" }, [
-                  _c(
-                    "div",
-                    { staticClass: "p-field p-col-6" },
-                    [
-                      _c("label", { attrs: { for: "parent" } }, [
-                        _vm._v("Parent ")
-                      ]),
-                      _vm._v(" "),
-                      _c("Dropdown", {
-                        attrs: {
-                          options: _vm.parents,
-                          optionLabel: "name",
-                          filter: true,
-                          placeholder: "Select a Parent"
-                        },
-                        model: {
-                          value: _vm.parent,
-                          callback: function($$v) {
-                            _vm.parent = $$v
-                          },
-                          expression: "parent"
-                        }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "p-field p-col-6" },
-                    [
-                      _c("label", { attrs: { for: "softOrder" } }, [
-                        _vm._v("Soft Order ")
-                      ]),
-                      _vm._v(" "),
-                      _c("Dropdown", {
-                        attrs: {
-                          options: _vm.softOrders,
-                          optionLabel: "order",
-                          filter: true,
-                          placeholder: "Select a Order"
-                        },
-                        model: {
-                          value: _vm.softOrder,
-                          callback: function($$v) {
-                            _vm.softOrder = $$v
-                          },
-                          expression: "softOrder"
-                        }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "p-field p-col-6" },
-                    [
-                      _c("label", { attrs: { for: "status" } }, [
-                        _vm._v("Status")
-                      ]),
-                      _vm._v(" "),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("Checkbox", {
-                        attrs: { binary: true },
-                        model: {
-                          value: _vm.status,
-                          callback: function($$v) {
-                            _vm.status = $$v
-                          },
-                          expression: "status"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _vm.status
-                        ? _c("span", [_vm._v("Active")])
-                        : _c("span", [_vm._v("Inactive")])
-                    ],
-                    1
-                  )
+                  _c("div", { staticClass: "p-field p-col" }, [
+                    _c(
+                      "span",
+                      { staticClass: "p-float-label" },
+                      [
+                        _c("InputText", {
+                          attrs: { id: "description", type: "text" }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "description" } }, [
+                          _vm._v("Description")
+                        ])
+                      ],
+                      1
+                    )
+                  ])
                 ]),
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "form-group" },
+                  { staticClass: "p-fluid p-formgrid p-grid p-col-12" },
                   [
-                    _c("label"),
+                    _c("div", { staticClass: "p-field p-col-6" }, [
+                      _c(
+                        "span",
+                        { staticClass: "p-float-label" },
+                        [
+                          _c("Dropdown", {
+                            attrs: {
+                              id: "dropdown",
+                              options: _vm.parentDepartments,
+                              optionLabel: "name",
+                              filter: true
+                            },
+                            model: {
+                              value: _vm.parentDepartment,
+                              callback: function($$v) {
+                                _vm.parentDepartment = $$v
+                              },
+                              expression: "parentDepartment"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("label", { attrs: { for: "dropdown" } }, [
+                            _vm._v("Select a Parent")
+                          ])
+                        ],
+                        1
+                      )
+                    ]),
                     _vm._v(" "),
-                    _c("Button", {
-                      staticClass: "col-md-3 p-button-success",
-                      attrs: { label: "Submit" }
-                    })
-                  ],
-                  1
+                    _c("div", { staticClass: "p-field p-col-6" }, [
+                      _c(
+                        "span",
+                        { staticClass: "p-float-label" },
+                        [
+                          _c("Dropdown", {
+                            attrs: {
+                              id: "dropdown",
+                              options: _vm.softOrders,
+                              optionLabel: "order",
+                              filter: true
+                            },
+                            model: {
+                              value: _vm.softOrder,
+                              callback: function($$v) {
+                                _vm.softOrder = $$v
+                              },
+                              expression: "softOrder"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("label", { attrs: { for: "dropdown" } }, [
+                            _vm._v("Select a Soft Order")
+                          ])
+                        ],
+                        1
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "p-fluid p-formgrid p-grid p-col-12" },
+                  [
+                    _c("div", { staticClass: "p-field p-col-6" }, [
+                      _c(
+                        "span",
+                        { staticClass: "p-float-label" },
+                        [
+                          _c("Dropdown", {
+                            attrs: {
+                              id: "dropdown",
+                              options: _vm.statuss,
+                              optionLabel: "name"
+                            },
+                            model: {
+                              value: _vm.status,
+                              callback: function($$v) {
+                                _vm.status = $$v
+                              },
+                              expression: "status"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("label", { attrs: { for: "dropdown" } }, [
+                            _vm._v("Status")
+                          ])
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "p-col-6" },
+                      [
+                        _c("Button", {
+                          staticClass: " p-button-success",
+                          attrs: { label: "Submit" }
+                        })
+                      ],
+                      1
+                    )
+                  ]
                 )
               ]
             },

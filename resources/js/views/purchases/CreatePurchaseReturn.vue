@@ -18,157 +18,203 @@
       <template #content>
         <div class="p-fluid p-formgrid p-grid">
           <div class="p-field p-col">
-            <label for="purchaseReturnDate">Purchase Return Date</label>
+            <span class="p-float-label">           
            <Calendar id="purchaseReturnDate" v-model="date1" />
+             <label for="purchaseReturnDate">Purchase Return Date</label>
+            </span>
           </div>
           <div class="p-field p-col">
-            <label for="customerName">Customer Name</label>
+          <span class="p-float-label">
             <Dropdown
               v-model="customerName"
-              :options="customerName"
-              optionLabel="customerName"
+              :options="customerNames"
+              optionLabel="Name"
               :filter="true"
-              placeholder="Product"
+             
             />
+            <label for="customerName">Customer Name</label>
+             
+          </span>
           </div>
           <div class="p-field p-col">
-            <label for="warehouse">Werehouse</label>
+           <span class="p-float-label">
             <Dropdown
               v-model="warehouse"
-              :options="warehouse"
+              :options="warehouses"
               optionLabel="warehouse"
               :filter="true"
-              placeholder="Product"
-            />
+             
+            /> 
+            <label for="description">Ware House</label>
+           </span>
           </div>
         </div>
 
         <div class="p-fluid p-formgrid p-grid">
-          <div class="p-field p-col">
-            <label for="referenceNumber">Reference No</label>
+          <div class="p-field p-col p-mt-3">
+            <span class="p-float-label">         
             <InputText id="referenceNumber" type="number" />
+              <label for="referenceNumber">Reference No</label>
+            </span>
           </div>
-          <div class="p-field p-col">
-            <label for="invoiceNumber">Invoice Number</label>
+          <div class="p-field p-col p-mt-3">
+            <span class="p-float-label">   
             <Dropdown
               v-model="invoiceNumber"
-              :options="invoiceNumber"
+              :options="invoiceNumbers"
               optionLabel="invoiceNumber"
               :filter="true"
-              placeholder="1"
+             
             />
+            <label for="invoiceNumber">Invoice Number</label>
+            </span>
           </div>
 
-          <div class="p-field p-col">
-            <label for="purchaseReturnStatus">Purchase Return status</label>
+          <div class="p-field p-col p-mt-3">
+            <span class="p-float-label">   
             <Dropdown
               v-model="purchaseReturnStatus"
-              :options="purchaseReturnStatus"
+              :options="purchaseReturnStatuss"
               optionLabel="purchaseReturnStatus"
               :filter="true"
-              placeholder="Ordered"
+             
             />
+            <label for="Ordered">Purchase Return Status</label>
+            </span>
           </div>
         </div>
 
         <div class="p-fluid p-formgrid p-grid">
-          <div class="p-field p-col">
-            <label for="paymentSystem">Payment System</label>
+          <div class="p-field p-col p-mt-3">
+           <span class="p-float-label">   
             <Dropdown
               v-model="paymentSystem"
-              :options="paymentSystem"
+              :options="paymentSystems"
               optionLabel="paymentSystem"
-              :filter="true"
-              placeholder="Paid"
+              :filter="true" 
             />
+             <label for="paymentSystem">Paid</label>
+           </span>
           </div>
 
-          <div class="p-field p-col">
-            <label for="salesBy">Sales By</label>
+          <div class="p-field p-col p-mt-3">
+          <span class="p-float-label">   
             <Dropdown
               v-model="salesBy"
-              :options="salesBy"
+              :options="salesBys"
               optionLabel="salesBy"
               :filter="true"
-              placeholder="Employee"
+              placeholder=""
             />
+             <label for="Ordered">Employee</label>
+          </span>
           </div>
-          <div class="p-field p-col">
-            <label for="notes">Notes</label>
+          <div class="p-field p-col p-mt-3">
+            <span class="p-float-label">      
             <InputText id="notes" type="text" />
+                <label for="notes">Notes</label>
+            </span>
           </div>
         </div>
-
+<div class="bg-light">
         <div
-          class="p-fluid p-formgrid p-grid p-md-10"
+          class="p-fluid p-formgrid p-grid p-md-10 p-mt-3"
           v-for="(item, id) in items"
           :key="id"
         >
           <div class="p-field p-col">
-            <label for="productName">Product Name</label>
+           <span class="p-float-label">
             <Dropdown
               v-model="item.productName"
-              :options="productName"
+              :options="productNames"
               optionLabel="productName"
               :filter="true"
-              placeholder="Product"
+             
             />
+            <label for="Ordered">Product Name</label>
+           </span>
           </div>
 
           <div class="p-field p-col">
-            <label for="qty">Qty</label>
+            <span class="p-float-label">
+          
             <InputText id="qty" type="text" v-model="item.qty" />
+              <label for="qty">Qty</label>
+            </span>
           </div>
           <div class="p-field p-col">
-            <label for="perPrice">Per Price</label>
+                  <span class="p-float-label">
             <InputText id="perPrice" type="text" v-model="item.perPrice" />
+                  <label for="perPrice">Per Price</label>
+                  </span>
           </div>
           <div class="p-field p-col">
+            <span class="p-float-label">
+        <InputText id="totalPrice" type="text" v-model="item.totalPrice" />
             <label for="totalPrice">Total Price</label>
-            <InputText id="totalPrice" type="text" v-model="item.totalPrice" />
+            </span>
           </div>
-          <div class="p-mt-5">
+          <div class="p-mt-1">
           <button @click="remove(id)" class="btn btn-danger">-</button>
           </div>
         </div>
+</div>
         <button @click="add" class="btn btn-success">+</button>
 
         <div class="p-grid ">
-          <div  class=" p-col-6 p-offset-6 p-d-flex p-jc-between">
-            <label for="saleDiscount">Sale Discount</label>
+          <div  class=" p-col-6 p-offset-6 p-d-flex p-jc-between ">
+           <label for="saleDiscount">Sale Discount</label>
             <InputText id="saleDiscount" type="Number"  />
+             
+           
           </div>
-          <div  class=" p-col-6 p-offset-6 p-d-flex p-jc-between">
-            <label for="totalDiscount">Total Discount</label>
+          <div  class=" p-col-6 p-offset-6 p-d-flex p-jc-between ">
+             <label for="totalDiscount">Total Discount</label>
             <InputText id="totalDiscount" type="Number"  />
+            
+            
           </div>
-          <div  class=" p-col-6 p-offset-6 p-d-flex p-jc-between">
-            <label for="totalTax">Total Tax</label>
+          <div  class=" p-col-6 p-offset-6 p-d-flex p-jc-between ">
+             <label for="totalTax">Total Tax</label>
             <InputText id="totalTax" type="Number"  />
+            
+          
           </div>
-          <div  class=" p-col-6 p-offset-6 p-d-flex p-jc-between">
-            <label for="shippingCost">Shipping Cost</label>
+          <div  class=" p-col-6 p-offset-6 p-d-flex p-jc-between ">
+                  <label for="shippingCost">Shipping Cost</label>
             <InputText id="shippingCost" type="Number"  />
+           
+         
           </div>
-          <div  class=" p-col-6 p-offset-6 p-d-flex p-jc-between">
-            <label for="grandTotal">Grand Total</label>
+          <div  class=" p-col-6 p-offset-6 p-d-flex p-jc-between  ">
+           <label for="grandTotal">Grand Total</label>
             <InputText id="grandTotal" type="Number"  />
+            
+            
           </div>
-          <div  class=" p-col-6 p-offset-6 p-d-flex p-jc-between">
-            <label for="previous">Previous </label>
+          <div  class=" p-col-6 p-offset-6 p-d-flex p-jc-between ">
+               <label for="previous">Previous </label>   
             <InputText id="previous" type="Number"  />
+              
+          
           </div>
-            <div  class=" p-col-6 p-offset-6 p-d-flex p-jc-between">
-            <label for="netTotal">Net Total</label>
+            <div  class=" p-col-6 p-offset-6 p-d-flex p-jc-between ">
+                 <label for="netTotal">Net Total</label>        
             <InputText id="netTotal" type="Number"  />
+           
+                
           </div>
-            <div  class=" p-col-6 p-offset-6 p-d-flex p-jc-between">
-            <label for="paidAmount">Paid Amount</label>
-            <InputText id="paidAmount" type="Number"  />
+            <div  class=" p-col-6 p-offset-6 p-d-flex p-jc-between ">
+                <label for="paidAmount">Paid Amount</label>
+                   <InputText id="paidAmount" type="Number"  />
+               
+             
           </div>
-            <div  class=" p-col-6 p-offset-6 p-d-flex p-jc-between">
-            <label for="due">Due</label>
+            <div  class=" p-col-6 p-offset-6 p-d-flex p-jc-between ">
+               <label for="due">Due</label>    
             <InputText id="due" type="Number"  />
+               
+               
           </div>
           
       
@@ -194,12 +240,21 @@ export default {
     Dropdown,
     Textarea,
    Calendar,
-   Button
+   Button,
   },
   name: "CreatePurchaseReturn",
   data() {
     return {
       date1 :null,
+      customerName:null,
+      warehouse:null,
+      invoiceNumber:null,
+      purchaseReturnStatus:null,
+      paymentSystem:null,
+      salesBy:null,
+      item:[
+        {productName:null}
+      ],
       items: [{ productName: "", qty: "", perPrice: "", totalPrice: "" }],
 
        home: { icon: "pi pi-home", to: "/" },
@@ -209,35 +264,32 @@ export default {
           { label: "Purchase Return Invoice",to:"/purchase-return-invoice"},
         { label: "Create Puchase Return"},
       ],
-      customerName:[
-        {customerName:'Customer 1'},
-        {customerName:'Customer 2'},
+      customerNames:[
+        {Name:'Customer 1'},
+        {Name:'Customer 2'},
       ],
-         warehouse:[
+         warehouses:[
         {warehouse:'warehouse 1'},
         {warehouse:'warehouse 2'},
       ],
-         invoiceNumber:[
+         invoiceNumbers:[
         {invoiceNumber:'invoiceNumber 1'},
         {invoiceNumber:'invoiceNumber 2'},
       ],
-         invoiceNumber:[
-        {invoiceNumber:'invoiceNumber 1'},
-        {invoiceNumber:'invoiceNumber 2'},
-      ],
-        purchaseReturnStatus:[
+     
+        purchaseReturnStatuss:[
         {purchaseReturnStatus:'Order '},
         {purchaseReturnStatus:'Unorder'},
       ],
-         paymentSystem:[
+         paymentSystems:[
         {paymentSystem:'Cash '},
         {paymentSystem:'Paypal'},
       ],
-          salesBy:[
+          salesBys:[
         {salesBy:'Cash '},
         {salesBy:'Paypal'},
       ],
-             productName:[
+             productNames:[
         {productName:'Cash '},
         {productName:'Paypal'},
       ],

@@ -67,6 +67,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -81,17 +84,6 @@ __webpack_require__.r(__webpack_exports__);
     return {
       status: true,
       parentDepartment: null,
-      parentDepartments: [{
-        name: "Department 1"
-      }, {
-        name: "Department 2"
-      }, {
-        name: "Department 3"
-      }, {
-        name: "Department 4"
-      }, {
-        name: "Department 5"
-      }],
       home: {
         icon: "pi pi-home",
         to: "/"
@@ -105,6 +97,16 @@ __webpack_require__.r(__webpack_exports__);
         to: "/department-list"
       }, {
         label: "Create Department"
+      }],
+      parentDepartments: [{
+        name: 'Department 1',
+        code: 'A-SY'
+      }, {
+        name: 'Department 2',
+        code: 'A-NE'
+      }, {
+        name: 'Department 3',
+        code: 'A-WO'
       }]
     };
   }
@@ -703,64 +705,70 @@ var render = function() {
             fn: function() {
               return [
                 _c("div", { staticClass: "p-fluid p-formgrid p-grid" }, [
-                  _c(
-                    "div",
-                    { staticClass: "p-field p-col" },
-                    [
-                      _c("label", { attrs: { for: "departmentName" } }, [
-                        _vm._v("Department Name ")
-                      ]),
-                      _vm._v(" "),
-                      _c("InputText", {
-                        attrs: { id: "departmentName", type: "text" }
-                      })
-                    ],
-                    1
-                  ),
+                  _c("div", { staticClass: "p-field p-col" }, [
+                    _c(
+                      "span",
+                      { staticClass: "p-float-label" },
+                      [
+                        _c("InputText", {
+                          attrs: { id: "departmentName", type: "text" }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "departmentName" } }, [
+                          _vm._v("Department Name ")
+                        ])
+                      ],
+                      1
+                    )
+                  ]),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "p-field p-col" },
-                    [
-                      _c("label", { attrs: { for: "departmentHead" } }, [
-                        _vm._v("Department Head ")
-                      ]),
-                      _vm._v(" "),
-                      _c("InputText", {
-                        attrs: { id: "departmentHead", type: "text" }
-                      })
-                    ],
-                    1
-                  )
+                  _c("div", { staticClass: "p-field p-col" }, [
+                    _c(
+                      "span",
+                      { staticClass: "p-float-label" },
+                      [
+                        _c("InputText", {
+                          attrs: { id: "departmentHead", type: "text" }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "departmentHead" } }, [
+                          _vm._v("Department Head ")
+                        ])
+                      ],
+                      1
+                    )
+                  ])
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "p-fluid p-formgrid p-grid" }, [
-                  _c(
-                    "div",
-                    { staticClass: "p-field p-col-6" },
-                    [
-                      _c("label", { attrs: { for: "parentDepartment" } }, [
-                        _vm._v("Parent Department")
-                      ]),
-                      _vm._v(" "),
-                      _c("Dropdown", {
-                        attrs: {
-                          options: _vm.parentDepartments,
-                          optionLabel: "name",
-                          filter: true,
-                          placeholder: "Select a Department"
-                        },
-                        model: {
-                          value: _vm.parentDepartment,
-                          callback: function($$v) {
-                            _vm.parentDepartment = $$v
+                  _c("div", { staticClass: "p-field p-col-6 p-mt-3" }, [
+                    _c(
+                      "span",
+                      { staticClass: "p-float-label" },
+                      [
+                        _c("Dropdown", {
+                          attrs: {
+                            id: "dropdown",
+                            options: _vm.parentDepartments,
+                            optionLabel: "name",
+                            filter: true
                           },
-                          expression: "parentDepartment"
-                        }
-                      })
-                    ],
-                    1
-                  ),
+                          model: {
+                            value: _vm.parentDepartment,
+                            callback: function($$v) {
+                              _vm.parentDepartment = $$v
+                            },
+                            expression: "parentDepartment"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "dropdown" } }, [
+                          _vm._v("Select a Department")
+                        ])
+                      ],
+                      1
+                    )
+                  ]),
                   _vm._v(" "),
                   _c(
                     "div",

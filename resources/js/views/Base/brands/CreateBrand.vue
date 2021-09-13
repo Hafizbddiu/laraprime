@@ -15,20 +15,31 @@
         <template #content>
             <div class="p-fluid p-formgrid p-grid">
                <div class="p-field p-col">
-                  <label for="title">Title </label>
+                 <span class="p-float-label">
                   <InputText id="title" type="text" />
+                  <label for="title">Title </label>
+                   </span>
                 </div>
 
-                <div class="p-field p-col">
-                  <label for="logo">Logo </label> <br>
-                  <Input type="file" id="logo" class="form-control" />
-                </div>
+
+
+                 <div class="p-field p-col-6">
+                <span class="p-float-label">  
+               <Textarea v-model="description" :autoResize="true" rows="1" cols="30" />
+                  <label for="description">Description </label><br />
+                 </span>
+                 </div>
+            
             </div>
              <div class="p-fluid p-formgrid p-grid">
-          <div class="p-field p-col-6">
-            <label for="description">Description </label><br />
-            <Textarea v-model="description" :autoResize="true" rows="1" cols="30" />
-                 </div>
+         
+    <div class="p-field p-col">
+                    
+                  <label for="logo">Logo </label> <br>
+                  <Input type="file" id="logo" class="form-control" />
+                  
+                </div>
+
           <div class="p-field p-col-6">
             <label for="status">Status</label>
             <br>

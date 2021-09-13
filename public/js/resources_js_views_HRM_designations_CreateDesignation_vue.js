@@ -51,6 +51,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -918,35 +923,46 @@ var render = function() {
             fn: function() {
               return [
                 _c("div", { staticClass: "p-fluid p-formgrid p-grid" }, [
-                  _c(
-                    "div",
-                    { staticClass: "p-field p-col" },
-                    [
-                      _c("label", { attrs: { for: "designationName" } }, [
-                        _vm._v("Designation Name ")
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("InputText", { attrs: { type: "text" } })
-                    ],
-                    1
-                  ),
+                  _c("div", { staticClass: "p-field p-col" }, [
+                    _c(
+                      "span",
+                      { staticClass: "p-float-label" },
+                      [
+                        _c("InputText", {
+                          attrs: { type: "text", id: "designationName" }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "designationName" } }, [
+                          _vm._v("Designation Name ")
+                        ]),
+                        _c("br")
+                      ],
+                      1
+                    )
+                  ]),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "p-field p-col" },
-                    [
-                      _c("label", { attrs: { for: "description" } }, [
-                        _vm._v("Description ")
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("Textarea", {
-                        attrs: { autoResize: true, rows: "1", cols: "30" }
-                      })
-                    ],
-                    1
-                  )
+                  _c("div", { staticClass: "p-field p-col" }, [
+                    _c(
+                      "span",
+                      { staticClass: "p-float-label" },
+                      [
+                        _c("Textarea", {
+                          attrs: {
+                            id: "description",
+                            autoResize: true,
+                            rows: "1",
+                            cols: "30"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "description" } }, [
+                          _vm._v("Description ")
+                        ]),
+                        _c("br")
+                      ],
+                      1
+                    )
+                  ])
                 ]),
                 _vm._v(" "),
                 _c(

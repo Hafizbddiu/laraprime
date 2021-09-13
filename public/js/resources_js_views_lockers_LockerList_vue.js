@@ -85,6 +85,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -124,6 +131,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         softOrder: 'Soft Order',
         status: 'Active'
       }],
+      name1: null,
       filters: {},
       selectedDepartments: null,
       editingRows: [],
@@ -146,10 +154,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: {
     onRowEditInit: function onRowEditInit(event) {
-      this.originalRows[event.index] = _objectSpread({}, this.departments[event.index]);
+      this.originalRows[event.index] = _objectSpread({}, this.lockers[event.index]);
     },
     onRowEditCancel: function onRowEditCancel(event) {
-      Vue.set(this.departments, event.index, this.originalRows[event.index]);
+      Vue.set(this.lockers, event.index, this.originalRows[event.index]);
     }
   }
 });
@@ -498,7 +506,7 @@ var render = function() {
                       value: _vm.lockers,
                       filters: _vm.filters,
                       selection: _vm.selectedDepartments,
-                      dataKey: "departmentName",
+                      dataKey: "name",
                       paginator: true,
                       rows: 5,
                       paginatorTemplate:
@@ -575,7 +583,13 @@ var render = function() {
                     }),
                     _vm._v(" "),
                     _c("Column", {
-                      attrs: { field: "name", header: "Name", sortable: "" },
+                      attrs: {
+                        headerStyle: "text-align:center",
+                        bodyStyle: "text-align:center",
+                        field: "name",
+                        header: "Name",
+                        sortable: ""
+                      },
                       scopedSlots: _vm._u([
                         {
                           key: "editor",
@@ -603,6 +617,8 @@ var render = function() {
                     _vm._v(" "),
                     _c("Column", {
                       attrs: {
+                        headerStyle: "text-align:center",
+                        bodyStyle: "text-align:center",
                         field: "description",
                         header: "Description",
                         sortable: ""
@@ -634,6 +650,8 @@ var render = function() {
                     _vm._v(" "),
                     _c("Column", {
                       attrs: {
+                        headerStyle: "text-align:center",
+                        bodyStyle: "text-align:center",
                         field: "parent",
                         header: "Parent",
                         sortable: ""
@@ -665,6 +683,8 @@ var render = function() {
                     _vm._v(" "),
                     _c("Column", {
                       attrs: {
+                        headerStyle: "text-align:center",
+                        bodyStyle: "text-align:center",
                         field: "softOrder",
                         header: "Soft Order",
                         sortable: ""
@@ -696,6 +716,8 @@ var render = function() {
                     _vm._v(" "),
                     _c("Column", {
                       attrs: {
+                        headerStyle: "text-align:center",
+                        bodyStyle: "text-align:center",
                         field: "status",
                         header: "Status",
                         sortable: ""
@@ -728,9 +750,36 @@ var render = function() {
                     _c("Column", {
                       attrs: {
                         rowEditor: true,
-                        headerStyle: "width:7rem",
-                        bodyStyle: "text-align:center"
+                        headerStyle: "text-align:center",
+                        bodyStyle: "text-align:center",
+                        header: "Edit"
                       }
+                    }),
+                    _vm._v(" "),
+                    _c("Column", {
+                      attrs: {
+                        headerStyle: "text-align:center",
+                        bodyStyle: "text-align:center",
+                        field: "action",
+                        header: "Action"
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "body",
+                          fn: function(slotProps) {
+                            return [
+                              _c("Button", {
+                                staticClass: "p-button-danger",
+                                attrs: { label: "Delete" }
+                              }),
+                              _vm._v(
+                                _vm._s(slotProps.data[slotProps.column.field]) +
+                                  "\n              \n            "
+                              )
+                            ]
+                          }
+                        }
+                      ])
                     })
                   ],
                   1

@@ -15,6 +15,12 @@ const PurchaseReturnInvoice = () => import('./views/purchases/PurchaseReturnInvo
 const LockerList = () => import('./views/lockers/LockerList.vue');
 const UpdateLocker = () => import('./views/lockers/UpdateLocker.vue');
 const CreateLocker = () => import('./views/lockers/CreateLocker.vue');
+const PurchaseStatus = () => import('./views/status/PurchaseStatus.vue');
+const SalesStatus = () => import('./views/status/SalesStatus.vue');
+const PurchaseReturnStatus = () => import('./views/status/PurchaseReturnStatus.vue');
+const SalesReturnStatus = () => import('./views/status/SalesReturnStatus.vue');
+
+
 
 
 
@@ -102,6 +108,29 @@ const routes = [
         name: ' CreateLocker',
         component:CreateLocker
     },
+    {
+        path: '/purchase-status',
+        name: ' PurchaseStatus',
+        component:PurchaseStatus
+    },
+    {
+        path: '/sales-status',
+        name: ' SalesStatus',
+        component:SalesStatus
+    },
+    {
+        path: '/purchase-return-status',
+        name: ' PurchaseReturnStatus',
+        component:PurchaseReturnStatus
+    },
+    {
+        path: '/sales-return-status',
+        name: ' SalesReturnStatus',
+        component:SalesReturnStatus
+    },
+ 
+    
+    
 
 ]
 

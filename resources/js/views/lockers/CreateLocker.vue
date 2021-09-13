@@ -1,11 +1,13 @@
 <template>
   <div>
     <Breadcrumb :home="home" :model="items" />
-        <div class="p-d-flex p-jc-between p-mt-2">
+    <div class="p-d-flex p-jc-between p-mt-2">
       <div><h3>Create Locker</h3></div>
       <div>
         <Button>
-          <router-link class="text-white" to="/department-list">Locker list</router-link>
+          <router-link class="text-white" to="/department-list"
+            >Locker list</router-link
+          >
         </Button>
       </div>
     </div>
@@ -13,50 +15,71 @@
       <template #content>
         <div class="p-fluid p-formgrid p-grid">
           <div class="p-field p-col">
-            <label for="Name">Name </label>
-            <InputText id="Name" type="text" />
+            <span class="p-float-label">
+              <InputText id="Name" type="text" />
+              <label for="Name">Name </label>
+            </span>
           </div>
           <div class="p-field p-col">
-            <label for="description">Description</label>
-            <InputText id="description" type="text" />
+            <span class="p-float-label">
+              <InputText id="description" type="text" />
+              <label for="description">Description</label>
+            </span>
           </div>
         </div>
 
-        <div class="p-fluid p-formgrid p-grid">
+        <div class="p-fluid p-formgrid p-grid  p-col-12">
           <div class="p-field p-col-6">
-            <label for="parent">Parent </label>
-            <Dropdown
-              v-model="parent"
-              :options="parents"
-              optionLabel="name"
-              :filter="true"
-              placeholder="Select a Parent"
-            />
-          </div>
-           <div class="p-field p-col-6">
-            <label for="softOrder">Soft Order </label>
-            <Dropdown
-              v-model="softOrder"
-              :options="softOrders"
-              optionLabel="order"
-              :filter="true"
-              placeholder="Select a Order"
-            />
+            <span class="p-float-label">
+              <Dropdown
+                id="dropdown"
+                v-model="parentDepartment"
+                :options="parentDepartments"
+                optionLabel="name"
+                :filter="true"
+              />
+              <label for="dropdown">Select a Parent</label>
+            </span>
           </div>
           <div class="p-field p-col-6">
+            <span class="p-float-label">
+              <Dropdown
+                id="dropdown"
+                v-model="softOrder"
+                :options="softOrders"
+                optionLabel="order"
+                :filter="true"
+              />
+              <label for="dropdown">Select a Soft Order</label>
+            </span>
+          </div>
+          <!-- <div class="p-field p-col-6">
             <label for="status">Status</label>
             <br>
 
             <Checkbox v-model="status" :binary="true" />
             <span v-if="status">Active</span>
             <span v-else>Inactive</span>
-          </div>
+          </div> -->
         </div>
-      
 
-        <div class="form-group">
-          <label> </label>
-          <Button label="Submit" class="col-md-3 p-button-success" />
+         <div class="p-fluid p-formgrid p-grid p-col-12">
+          <div class="p-field p-col-6">
+            <span class="p-float-label">
+              <Dropdown
+                id="dropdown"
+                v-model="status"
+                :options="statuss"
+                optionLabel="name"
+              />
+              <label for="dropdown">Status</label>
+            </span>
+          </div>
+
+          <div class="p-col-6">
+         
+            <Button label="Submit" class=" p-button-success" />
+          </div>
         </div>
       </template>
     </Card>
@@ -65,7 +88,7 @@
 <script>
 import Dropdown from "primevue/dropdown";
 import Checkbox from "primevue/checkbox";
-import Button from 'primevue/button';
+import Button from "primevue/button";
 export default {
   components: {
     Dropdown,
@@ -77,29 +100,29 @@ export default {
 
   data() {
     return {
-      status: true,
+      status: null,
+      statuss: [{ name: "Active" }, { name: "Inactive" }],
 
-      softOrder:null,
-      softOrders:[
-          {order:'Order1'},
-            {order:'Order2'},
-              {order:'Order3'},
+      parentDepartment: null,
+      softOrder: null,
+      softOrders: [
+        { order: "Order1" },
+        { order: "Order2" },
+        { order: "Order3" },
       ],
-      parent: null,
-      parents: [
-        { name: "Parent 1" },
-        { name: "Parent 2" },
-        { name: "Parent 3" },
-        { name: "Parent 4" },
-        { name: "Parent 5" },
-      ],
+
       home: { icon: "pi pi-home", to: "/" },
       items: [
-        { label: "Lockers"},
-        { label: "Locker List",to:"/locker-list" },
-        { label: "Update Locker",to:"/update-locker"},
+        { label: "Lockers" },
+        { label: "Locker List", to: "/locker-list" },
+        { label: "Update Locker", to: "/update-locker" },
         { label: "Create Locker" },
-      
+      ],
+
+      parentDepartments: [
+        { name: "Department 1", code: "A-SY" },
+        { name: "Department 2", code: "A-NE" },
+        { name: "Department 3", code: "A-WO" },
       ],
     };
   },
